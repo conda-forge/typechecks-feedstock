@@ -1,6 +1,5 @@
 {% set name = "typechecks" %}
 {% set version = "0.1.0" %}
-{% set sha256 = "7d801a6018f60d2a10aa3debc3af65f590c96c455de67159f39b9b183107c83b" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 7d801a6018f60d2a10aa3debc3af65f590c96c455de67159f39b9b183107c83b
 
 build:
   noarch: python
   number: 1
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
